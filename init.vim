@@ -27,6 +27,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joshdick/onedark.vim'
 Plug 'github/copilot.vim'
+Plug 'rebelot/kanagawa.nvim'
 
 call plug#end()
 au BufNewFile,BufRead *.json setlocal filetype=json
@@ -64,7 +65,7 @@ let g:copilot_filetypes = {
      \ | if f > 100000 || f == -2
      \ | let b:copilot_enabled = v:false
      \ | endif
-let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.10/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 " ============================================================================ "
 " ===                                UI                                    === "
 " ============================================================================ "
@@ -73,17 +74,24 @@ set winbl=0
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors     " enable true colors support
 syntax on
-hi LineNr cterm=bold ctermfg=121 guifg=Green gui=bold guibg=#000b00
-hi LineNrAbove guifg=DarkGreen guibg=#000b00
-hi LineNrBelow guifg=DarkGreen guibg=#000b00
-hi CursorLineNr cterm=bold ctermfg=121 guifg=Green gui=bold guibg=#000b00
-hi Pmenu ctermfg=0 ctermbg=13 gui=bold guibg=DarkGreen
-hi PmenuSel ctermfg=242 ctermbg=0 guibg=#000b00
-hi Normal guifg=#abb2bf
-hi NonText guifg=#61afef
-hi Label guifg=#abb2bf
-hi Conceal guibg=DarkGreen
-hi Visual guibg=#61afef guifg=Black
+" let g:onedark_termcolors = 256
+" let g:onedark_terminal_italics = 1
+" let ayucolor="light"  " for light version of theme
+" let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+" set background=light
+colorscheme kanagawa
+" hi LineNr cterm=bold ctermfg=121 guifg=Green gui=bold guibg=#000b00
+" hi LineNrAbove guifg=DarkGreen guibg=#000b00
+" hi LineNrBelow guifg=DarkGreen guibg=#000b00
+" hi CursorLineNr cterm=bold ctermfg=121 guifg=Green gui=bold guibg=#000b00
+" hi Pmenu ctermfg=0 ctermbg=13 gui=bold guibg=DarkGreen
+" hi PmenuSel ctermfg=242 ctermbg=0 guibg=#000b00
+" hi Normal guifg=#abb2bf
+" hi NonText guifg=#61afef
+" hi Label guifg=#abb2bf
+" hi Conceal guibg=DarkGreen
+" hi Visual guibg=#61afef guifg=Black
 " hi Statement guifg=#c678dd gui=none
 " hi Identifier guifg=#e5c07b
 " hi Function guifg=#61afef
@@ -93,57 +101,50 @@ hi Visual guibg=#61afef guifg=Black
 " hi Number guifg=#ffa0a0
 " hi Type guifg=#e06c75 gui=none
 " hi Special guifg=#c678dd
-hi Comment guifg=#0a5408 gui=bold
-hi Todo guibg=DarkGreen guifg=White
+" hi Comment guifg=#0a5408 gui=bold
+" hi Todo guibg=DarkGreen guifg=White
 " hi Keyword guifg=#61afef
-hi MatchParen guibg=DarkGreen
+" hi MatchParen guibg=DarkGreen
 " hi typescriptBraces guifg=#abb2bf
 " hi typescriptAssign guifg=#56b6c2
 " hi typescriptBinaryOp guifg=#56b6c2
 " hi typescriptArrowFunc guifg=#c678dd
-hi typescriptMember guifg=#abb2bf
+" hi typescriptMember guifg=#abb2bf
 " hi typescriptVariable guifg=#c678dd
 " hi typescriptOperator guifg=#c678dd
-hi Error           ctermfg=204 guifg=White
-hi String          ctermfg=114 guifg=#98c379
-hi Constant        ctermfg=38 guifg=#56b6c2
-hi Character       ctermfg=114 guifg=#98c379
-hi Number          ctermfg=173 guifg=#d19a66
-hi Boolean         ctermfg=173 guifg=#d19a66
-hi Float           ctermfg=173 guifg=#d19a66
-hi Function        ctermfg=39 guifg=#61afef
-hi Identifier      ctermfg=204 guifg=#e06c75
-hi Conditional     ctermfg=170 guifg=#c678dd
-hi Statement       ctermfg=170 guifg=#c678dd
-hi Repeat          ctermfg=170 guifg=#c678dd
+" hi Error           ctermfg=204 guifg=White
+" hi String          ctermfg=114 guifg=#98c379
+" hi Constant        ctermfg=38 guifg=#56b6c2
+" hi Character       ctermfg=114 guifg=#98c379
+" hi Number          ctermfg=173 guifg=#d19a66
+" hi Boolean         ctermfg=173 guifg=#d19a66
+" hi Float           ctermfg=173 guifg=#d19a66
+" hi Function        ctermfg=39 guifg=#61afef
+" hi Identifier      ctermfg=204 guifg=#e06c75
+" hi Conditional     ctermfg=170 guifg=#c678dd
+" hi Statement       ctermfg=170 guifg=#c678dd
+" hi Repeat          ctermfg=170 guifg=#c678dd
 " hi Label           ctermfg=170 guifg=#c678dd
-hi Operator        ctermfg=170 guifg=#c678dd
-hi Keyword         ctermfg=170 guifg=#c678dd
-hi Exception       ctermfg=170 guifg=#c678dd
-hi Include         ctermfg=39 guifg=#61afef
-hi PreProc         ctermfg=180 guifg=#e5c07b
-hi Define          ctermfg=170 guifg=#c678dd
-hi Macro           ctermfg=170 guifg=#c678dd
-hi PreCondit       ctermfg=180 guifg=#e5c07b
-hi StorageClass    ctermfg=180 guifg=#e5c07b
-hi Type            ctermfg=180 guifg=#e5c07b
-hi Structure       ctermfg=180 guifg=#e5c07b
-hi Typedef         ctermfg=180 guifg=#e5c07b
-hi Tag             guifg=#abb2bf
-hi Special         ctermfg=39 guifg=#61afef
-hi SpecialChar     ctermfg=173 guifg=#d19a66
-hi Delimiter       guifg=#abb2bf
-hi SpecialComment  ctermfg=59 guifg=#5c6370
-hi Debug           guifg=#abb2bf
-hi jsonKeyword     ctermfg=204 guifg=#e06c75
-hi deniteSource_grepFile cterm=bold ctermfg=121 guifg=#abb2bf gui=bold
-" let g:onedark_termcolors = 256
-" let g:onedark_terminal_italics = 1
-" colorscheme onedark
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" set background=light
+" hi Operator        ctermfg=170 guifg=#c678dd
+" hi Keyword         ctermfg=170 guifg=#c678dd
+" hi Exception       ctermfg=170 guifg=#c678dd
+" hi Include         ctermfg=39 guifg=#61afef
+" hi PreProc         ctermfg=180 guifg=#e5c07b
+" hi Define          ctermfg=170 guifg=#c678dd
+" hi Macro           ctermfg=170 guifg=#c678dd
+" hi PreCondit       ctermfg=180 guifg=#e5c07b
+" hi StorageClass    ctermfg=180 guifg=#e5c07b
+" hi Type            ctermfg=180 guifg=#e5c07b
+" hi Structure       ctermfg=180 guifg=#e5c07b
+" hi Typedef         ctermfg=180 guifg=#e5c07b
+" hi Tag             guifg=#abb2bf
+" hi Special         ctermfg=39 guifg=#61afef
+" hi SpecialChar     ctermfg=173 guifg=#d19a66
+" hi Delimiter       guifg=#abb2bf
+" hi SpecialComment  ctermfg=59 guifg=#5c6370
+" hi Debug           guifg=#abb2bf
+" hi jsonKeyword     ctermfg=204 guifg=#e06c75
+" hi deniteSource_grepFile cterm=bold ctermfg=121 guifg=#abb2bf gui=bold
 " ============================================================================ "
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
@@ -185,7 +186,7 @@ call denite#custom#var('buffer', 'date_format', '')
 "   winrow                      - Set Denite filter window to top
 "   vertical_preview            - Open the preview window vertically
 let s:denite_options = {'default' : {
-\ 'split': 'vertical',
+\ 'split': 'horizontal',
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
