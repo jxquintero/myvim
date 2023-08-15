@@ -24,7 +24,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'elzr/vim-json'
 Plug 'adrian5/oceanic-next-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joshdick/onedark.vim'
 Plug 'github/copilot.vim'
 Plug 'rebelot/kanagawa.nvim'
@@ -244,7 +243,7 @@ endif
 " inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : /"\<S-Tab>"
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-let g:coc_global_extensions = ['coc-tsserver', 'coc-go', 'coc-eslint', 'coc-json', 'coc-css', 'coc-prettier', 'coc-html', 'coc-html-css-support', 'coc-htmlhint', 'coc-cssmodules', 'coc-stylelintplus', 'coc-stylelint']
+let g:coc_global_extensions = ['coc-tsserver', 'coc-eslint', 'coc-json', 'coc-css', 'coc-prettier', 'coc-html', 'coc-html-css-support', 'coc-htmlhint', 'coc-cssmodules', 'coc-stylelintplus', 'coc-stylelint']
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
